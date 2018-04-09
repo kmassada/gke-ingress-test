@@ -1,0 +1,35 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: hey-deployment
+  labels:
+    app: hey
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hey
+  template:
+    metadata:
+      labels:
+        app: hey
+    spec:
+      containers:
+      - name: hey
+        image: gcr.io/google-samples/hello-app:1.0
+        ports:
+        - containerPort: 8080
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: hey-service
+spec:
+  type: NodePort
+  selector:
+    app: hey
+  ports:
+  - protocol: TCP
+    port: 8088
+    protocol: TCP
+    name: hey

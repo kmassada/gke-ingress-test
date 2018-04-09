@@ -1,8 +1,10 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: fanout-ingress-gce
+  name: fanout-ingress-tls-gce
 spec:
+  tls:
+  - secretName: tls-secret
   rules:
   - http:
       paths:

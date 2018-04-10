@@ -30,6 +30,7 @@ spec:
     app: hey
   ports:
   - protocol: TCP
+    targetPort: 8080
     port: 8088
     protocol: TCP
     name: hey
